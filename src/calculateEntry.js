@@ -1,6 +1,6 @@
 const data = require('../data/zoo_data');
 
-const info = data;
+// const info = data.prices;
 
 function countEntrants(entrants) {
   const arrToObj = {
@@ -12,7 +12,9 @@ function countEntrants(entrants) {
 }
 
 function calculateEntry(entrants) {
-  // seu código aqui
+  if (!entrants || Object.keys(entrants).length === 0) {
+    return 0;
+  }
 }
 
 module.exports = { calculateEntry, countEntrants };
