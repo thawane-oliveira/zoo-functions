@@ -1,7 +1,7 @@
 const data = require('../data/zoo_data');
 
 function isManager(id) {
-  // seu código aqui
+  // return data.employees.forEach((manager) => .some(() => ));
 }
 
 function getRelatedEmployees(managerId) {
