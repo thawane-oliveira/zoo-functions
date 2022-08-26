@@ -22,4 +22,16 @@ describe('Testes da função getOpeningHours', () => {
     };
     expect(getOpeningHours()).toEqual(schedule);
   });
+  it('Se é retornada uma exceção caso o dia do argumento esteja abreviado', () => {
+    expect(() => getOpeningHours('Wed', '09:00-AM')).toThrowError(new Error('The day must be valid. Example: Monday'));
+  });
+  it('Se é retornada uma exceção caso o formato do horário esteja errado', () => {
+    expect(() => getOpeningHours('Wednesday', '09:00-YM')).toThrowError(new Error('The abbreviation must be \'AM\' or \'PM\''));
+  });
+  it('Se é retornada uma exceção caso a hora tenha um caractere que não seja numérico', () => {
+    expect(() => getOpeningHours('Wednesday', 'J9:00-AM')).toThrowError(new Error('The hour should represent a number'));
+  });
+  it('Se é retornada uma exceção caso os minutos tenham um caractere que não seja numérico', () => {
+    expect(() => getOpeningHours('Wednesday', '09:0Z-AM')).toThrowError(new Error('The minutes should represent a number'));
+  });
 });
