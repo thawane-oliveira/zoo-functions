@@ -1,7 +1,14 @@
 const data = require('../data/zoo_data');
 
+const info = data;
+
 function countEntrants(entrants) {
-  // seu código aqui
+  const arrToObj = {
+    child: entrants.filter((visitor) => visitor.age < 18).length,
+    adult: entrants.filter((visitor) => visitor.age >= 18 && visitor.age < 50).length,
+    senior: entrants.filter((visitor) => visitor.age >= 50).length,
+  };
+  return arrToObj;
 }
 
 function calculateEntry(entrants) {
