@@ -34,4 +34,10 @@ describe('Testes da função getOpeningHours', () => {
   it('Se é retornada uma exceção caso os minutos tenham um caractere que não seja numérico', () => {
     expect(() => getOpeningHours('Wednesday', '09:0Z-AM')).toThrowError(new Error('The minutes should represent a number'));
   });
+  it('Se é retornada uma exceção caso o horário do argumento esteja fora do escopor de 0 a 12', () => {
+    expect(() => getOpeningHours('Saturday', '15:00-AM')).toThrowError(new Error('The hour must be between 0 and 12'));
+  });
+  it('Se é retornada uma exceção caso os minutos estejam fora de padrão 0-59', () => {
+    expect(() => getOpeningHours('Friday', '08:62-AM')).toThrowError(new Error('The minutes must be between 0 and 59'));
+  });
 });
