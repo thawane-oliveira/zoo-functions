@@ -6,19 +6,17 @@ const arrivedercci = employees.map((emp) => {
   const result = {
     id: emp.id,
     fullName: `${emp.firstName} ${emp.lastName}`,
-    species: emp.responsibleFor,
-    locations: emp.responsibleFor,
+    species: emp.responsibleFor.map((x) => species.find((animal) => animal.id === x).name),
+    locations: emp.responsibleFor.map((x) => species.find((animal) => animal.id === x).location),
   };
   return result;
 });
 
-console.log(arrivedercci);
-
 // const seguindo o modelo solicitado no readme
 
 function getEmployeesCoverage(param) {
-  if (!param) {
-    return [arrivedercci];
+  if (!param || param === undefined) {
+    return arrivedercci;
   }
 }
 
