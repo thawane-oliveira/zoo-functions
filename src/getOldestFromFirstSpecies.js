@@ -2,7 +2,7 @@ const data = require('../data/zoo_data');
 
 const { species, employees } = data;
 
-// const { employees } = data;
+// const { employees } = data; comentado porque revi conteúdo de desestruturação de objetos e vi que posso aproveitar a mesma const
 
 const getOldestAnimal = (specie) =>
   (specie.residents.sort((yare, ora) => ora.age - yare.age))[0];
