@@ -12,9 +12,7 @@ function countEntrants(entrants) {
 }
 
 function calculateEntry(entrants) {
-  if (!entrants || Object.keys(entrants).length === 0) {
-    return 0;
-  }
+  if (!entrants || Object.keys(entrants).length === 0) return 0;
   {
     const allVisitors = countEntrants(entrants);
     let totalTicket = 0;
