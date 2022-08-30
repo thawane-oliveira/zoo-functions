@@ -5,7 +5,7 @@ const { employees } = data;
 function getEmployeeByName(employeeName) {
   if (!employeeName) return {};
 
-  employees.find((employee) =>
+  return employees.find((employee) =>
     employeeName === employee.firstName || employeeName === employee.lastName);
 }
 

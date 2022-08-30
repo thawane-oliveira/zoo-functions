@@ -4,7 +4,7 @@ const { species } = data;
 
 function countAnimals(animal) {
   if (!animal) {
-    species.reduce((acc, specie) => {
+    return species.reduce((acc, specie) => {
       acc[specie.name] = specie.residents.length;
       return acc;
     }, {});
