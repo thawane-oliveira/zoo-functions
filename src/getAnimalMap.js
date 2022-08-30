@@ -24,7 +24,7 @@ const animals = () => {
 };
 
 const orderedNames = () => {
-  const animalGrid = {
+  const animalName = {
     NE: species.filter((specie) => specie.location === 'NE')
       .map((animal) => ({ [animal.name]: animal.residents
         .map((resident) => resident.name).sort() })),
@@ -38,17 +38,60 @@ const orderedNames = () => {
       .map((animal) => ({ [animal.name]: animal.residents
         .map((resident) => resident.name).sort() })),
   };
-  return animalGrid;
+  return animalName;
 };
 
-console.log(orderedNames());
+const animalGender = (param) => {
+  const animalSex = {
+    NE: species.filter((specie) => specie.location === 'NE').map((animal) => (
+      { [animal.name]: animal.residents.filter((resident) => resident.sex === param)
+        .map((resident) => resident.name) })),
+    NW: species.filter((specie) => specie.location === 'NW').map((animal) => (
+      { [animal.name]: animal.residents.filter((resident) => resident.sex === param)
+        .map((resident) => resident.name) })),
+    SE: species.filter((specie) => specie.location === 'SE').map((animal) => (
+      { [animal.name]: animal.residents.filter((resident) => resident.sex === param)
+        .map((resident) => resident.name) })),
+    SW: species.filter((specie) => specie.location === 'SW').map((animal) => (
+      { [animal.name]: animal.residents.filter((resident) => resident.sex === param)
+        .map((resident) => resident.name) })),
+  };
+  return animalSex;
+};
+
+const sortedGender = (param) => {
+  const sortedSex = {
+    NE: species.filter((specie) => specie.location === 'NE').map((animal) => (
+      { [animal.name]: animal.residents.filter((resident) => resident.sex === param)
+        .map((resident) => resident.name).sort() })),
+    NW: species.filter((specie) => specie.location === 'NW').map((animal) => (
+      { [animal.name]: animal.residents.filter((resident) => resident.sex === param)
+        .map((resident) => resident.name).sort() })),
+    SE: species.filter((specie) => specie.location === 'SE').map((animal) => (
+      { [animal.name]: animal.residents.filter((resident) => resident.sex === param)
+        .map((resident) => resident.name).sort() })),
+    SW: species.filter((specie) => specie.location === 'SW').map((animal) => (
+      { [animal.name]: animal.residents.filter((resident) => resident.sex === param)
+        .map((resident) => resident.name).sort() })),
+  };
+  return sortedSex;
+};
+
+function helper(options) {
+  const fOrM = options.sex === 'male' || options.sex === 'female';
+  if (fOrM) {
+    if (options.sorted) return sortedGender(options.sex);
+    return animalGender(options.sex);
+  }
+  return null;
+}
 
 function getAnimalMap(options) {
   if (!options || !options.includeNames) return animalLocation;
-  if (options.sorted === true) return orderedNames();
-  if (options.includeNames === true) return animals();
+  const help = helper(options);
+  if (help !== null) return help;
+  if (options.sorted) return orderedNames();
+  return animals();
 }
-
-console.log(getAnimalMap({ sorted: true }));
 
 module.exports = getAnimalMap;
