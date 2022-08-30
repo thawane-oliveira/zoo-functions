@@ -1,6 +1,6 @@
 const data = require('../data/zoo_data');
 
-const ticketPrice = data.prices;
+const { prices } = data;
 
 function countEntrants(entrants) {
   const arrToObj = {
@@ -16,9 +16,9 @@ function calculateEntry(entrants) {
   {
     const allVisitors = countEntrants(entrants);
     let totalTicket = 0;
-    totalTicket += allVisitors.child * ticketPrice.child;
-    totalTicket += allVisitors.adult * ticketPrice.adult;
-    totalTicket += allVisitors.senior * ticketPrice.senior;
+    totalTicket += allVisitors.child * prices.child;
+    totalTicket += allVisitors.adult * prices.adult;
+    totalTicket += allVisitors.senior * prices.senior;
     return totalTicket;
   }
 }
