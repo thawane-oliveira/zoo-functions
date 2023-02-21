@@ -1,13 +1,21 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+<h2>Zoo Functions</h2>
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Este foi o primeiro projeto mais desafiador proposto pela Trybe, em que utilizamos ES6 e HOF (Higher Order Functions) para implementar funções que organizassem os dados de um zoológico.</br>
+Dentre as funções, podemos destacar: disponibilização de cronograma de horários, informações sobre pessoas colaboradoras, mapeamento de animais por região, espécie e sexo, cobertura de testes etc.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+<h3>Tecnologias utilizadas</h3>
+
+<li>JavaScript</li>
+
+<h3>Instalando Dependências</h3>
+
+Em seu terminal:</br> 
+cd zoo-functions/</br>
+npm install ou npm i
+
+<h3>Rodando os testes da aplicação</h3>
+
+Em seu terminal:</br>
+cd zoo-functions/</br>
+npm test
+
